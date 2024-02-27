@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
 
 app = Flask(__name__)
 
