@@ -1,8 +1,18 @@
 from flask import Flask, render_template, request
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
-nltk.download('vader_lexicon')
+import os
 
+# Specify a writable directory for NLTK data
+nltk_data_dir = os.path.join(os.path.dirname(__file__), 'nltk_data')
+nltk.data.path.append(nltk_data_dir)
+
+# Download the vader_lexicon resource if not present
+try:
+    nltk.data.find('vader_lexicon')
+except LookupError:
+    nltk.download('vader_lexicon', download_dir=nltk_data_dir)
+    
 app = Flask(__name__)
 
 @app.route("/", methods=["GET","POST"])
