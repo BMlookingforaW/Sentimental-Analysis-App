@@ -3,8 +3,8 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import os
 
-# Specify a writable directory for NLTK data
-nltk_data_dir = os.path.join(os.path.dirname(__file__), 'nltk_data')
+# Specify a writable directory for NLTK data in /tmp
+nltk_data_dir = '/tmp/nltk_data'
 nltk.data.path.append(nltk_data_dir)
 
 # Download the vader_lexicon resource if not present
